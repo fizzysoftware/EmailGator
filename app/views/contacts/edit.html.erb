@@ -1,0 +1,12 @@
+<div class="container">
+	<%= render 'shared/sidebar' %><br>
+	<div class="right_nav">
+		<div class="new_contact">
+			<h1>Edit Contact</h1>
+			<%= form_for([@user,@contact]) do |f| %>
+				<%= f.text_field :email, label: false, placeholder: 'Email', :class => "email" %>
+    			<%= f.submit( :class => "login_btn") %>
+ 			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="left_nav">
+	<%= link_to 'Compose', new_user_message_path(current_user), :class => ["ease", (" btn_active " if params[:controller] =='messages' and params[:action] == 'new')].compact.join(" ") %>
+	<ul>
+
+		<li>
+			<%= link_to 'Sent', user_messages_path(current_user), :class => ["ease", ("btn_active " if params[:controller] =='messages' and params[:action] == 'index')].compact.join(" ") %>
+		</li>
+		<li>
+			<%= link_to 'Drafts',  draft_user_path(current_user), :class => ["ease", ("btn_active " if params[:controller] =='users' and params[:action] == 'draft')].compact.join(" ") %>
+		</li>
+		<li>
+			<%= link_to 'Contacts ('+ current_user.contacts.count.to_s + ')', user_contacts_path(current_user), :class => ["ease", ("btn_active " if params[:controller] =='contacts')].compact.join(" ") %>
+		</li>
+
+	</ul>
+</div>

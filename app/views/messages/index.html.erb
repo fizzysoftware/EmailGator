@@ -1,0 +1,38 @@
+<div class="container">
+	<%= render 'shared/sidebar' %><br>
+	<div class="right_nav">
+		<% unless @messages.blank? %>
+			<div class="subject_sent_details">
+
+				<div class="search_box">
+          			<%= form_tag search_user_messages_path(@user), method: :get do %>
+		          		<%= text_field_tag :search, params[:search], :class => "search_text",:placeholder => "Search Messages" %>
+                 			<%= submit_tag "Search", title: nil,:class => "search_btn ease" %>
+              		<% end %>
+        		</div>
+
+				<table>
+					<tr class="brdr_solid">
+						<th class="ease"> Subject </th>
+						<th class="ease"> Date Sent </th>
+						<th class="ease"> Recipients </th>
+					</tr>	
+					<% @messages.each do |message| %>
+						<tr class="brdr_btm">
+							<td><%= link_to truncate(message.subject, :length => 50), user_message_path(@user,message), :class => "ease" %></td>
+							<td><%= link_to message.created_at, "#", :class => "ease" %></td>
+							<td><%= link_to message.recipients, "#", :class => "ease" %></td>
+						</tr>
+					<% end %>
+				</table>
+				<%= will_paginate @messages %><!-- pagination -->
+			</div>
+		<% else %>
+			<p class="message_icon">
+				message icon
+			</p>
+			<p class="flash_message ease">No Messages Found</p>
+			<p class="flash_text">Letters are among the most significiant memirial a person can leave behind them.</p>
+		<% end %>
+	</div>
+</div>

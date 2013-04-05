@@ -1,0 +1,28 @@
+<div class="container">
+	<%= render 'shared/sidebar' %><br>
+	<div class="right_nav">
+		<% unless @messages.blank? %>
+			<div class="subject_sent_details">
+				<table>
+					<tr class="brdr_solid">
+						<th class="ease"> Subject </th>
+						<th class="ease"> Last Edited </th>
+					</tr>
+					<% @messages.each do |message| %>	
+						<tr class="brdr_btm">
+							<td><%= link_to truncate(message.subject, :length => 50), edit_user_message_path(@user,message) %></td>
+							<td><%= link_to message.updated_at, "#" %></td>
+						</tr>
+					<% end %>
+				</table>
+				<%= will_paginate @messages %><!-- pagination -->
+			</div>
+		<% else %>
+			<p class="message_icon">
+				message icon
+			</p>
+			<p class="flash_message ease">No Messages are Saved</p>
+			<p class="flash_text">Letters are among the most significiant memirial a person can leave behind them.</p>
+		<% end %>
+	</div>
+</div>

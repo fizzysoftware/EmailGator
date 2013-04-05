@@ -1,0 +1,32 @@
+<div id='notice' style="<%= 'display: none; ' if flash[:notice].blank? %> text-align: center;">
+	<%= flash[:notice].html_safe  unless flash[:notice].blank? %>
+</div>
+
+<div id='error' style="<%= 'display: none;' if flash[:error].blank? %>  text-align: center;">
+	<%= flash[:error].html_safe  unless flash[:error].blank? %>
+</div>
+
+<header>
+	<div class="header_container">
+		<%= link_to "logo", root_path , :class => "brand" %>
+		<ul>
+			<% if user_signed_in? %>
+				<li class="welcome">Welcome <b><%= current_user.name%></b></li>
+				<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "signout_btn ease" %></li>
+			<% else %>
+				<div class="login_container">
+					<%= link_to "Log In", new_user_session_path, :class => "login_btn ease textshadow" %> 
+					<%= link_to "Sign Up", new_user_registration_path, :class => "login_btn ease textshadow" %>
+				</div>
+			<% end %>
+		</ul>
+	</div><!-- header_container -->
+
+	<!-- <div style = 'float:right;'>
+		<%#= link_to 'Subscribe' ,user_subscribe_path(current_user, current_user.subscribe) %>
+	</div> -->
+
+	<div class ="fork">
+		<%= link_to image_tag('fork.png'), 'https://github.com/fizzysoftware/EmailGator',:target => '_blank' %>
+	</div>
+</header><!-- header -->

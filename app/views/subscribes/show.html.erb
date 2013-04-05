@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="subscribe_container">
+		<h1><%= best_in_place @subscribe, :heading %></h1>
+		<p><%= @subscribe.source %></p>
+		<p><%= @subscribe.content %></p>
+		<%= link_to "View the letter Archive", "javascript:void()", :class => "ease" %>
+
+		<label><%= @subscribe.email_text %></label><br />
+		<input type="emial" class="email">
+		<input type="submit" value="SUBSCRIBE" class="subscribe_btn ease">
+	
+	</div>
+</div>

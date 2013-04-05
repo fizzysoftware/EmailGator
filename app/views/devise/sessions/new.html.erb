@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="signin_container">
+		<h2 class="textshadow">Log In</h2>
+
+		<div class="form_container">
+			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+					
+					<%- resource_class.omniauth_providers.each do |provider| %>
+						<%= link_to "facebook", omniauth_authorize_path(resource_name, provider), :class => "login_facebook" %>
+					<% end -%>	
+					<div class="or_image">Or image</div>
+
+					  
+					    <%= f.input :email, :required => false, :autofocus => true, label: false, input_html: { class: 'email' }, placeholder: 'Email' %>
+
+					    <%= f.input :password, :required => false, input_html: { class: 'password' }, label: false, placeholder: 'Password' %>
+
+					    <%= f.input :remember_me, :as => :boolean, label: false, :inline_label => 'Remember Me' if devise_mapping.rememberable? %>
+
+					    <%= link_to "Forgot Password ?", new_password_path(resource_name), :class => "forgot_password ease" %>
+
+					    <%= f.button :submit, "Login", :class => "login_btn sign_inbtn_width" %><br>
+							
+							<%= link_to "Didn't Receive Confirmation?", new_confirmation_path(resource_name), :class => "recieve_confirmation ease" %>
+							<span class="dont_have">Don't have an account ?</span>
+							<%= link_to "Sign up", new_registration_path(resource_name), :class => "signup_link ease" %>
+					<% end %>
+
+					<%#= render "devise/shared/links" %>
+		
+		</div><!-- form_container -->
+	</div><!-- signin_container -->
+</div><!-- container -->

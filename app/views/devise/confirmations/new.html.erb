@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="signin_container">
+<h2>Resend Confirmation</h2>
+<div class="form_container">
+<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, :required => true, label: false, placeholder: 'Email',input_html: { class: 'email' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Resend confirmation instructions", :class => "login_btn ease" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

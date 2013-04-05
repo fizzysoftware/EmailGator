@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="aboutus_container">
+<h1 class="caption">Contact Us</h1>
+
+<div id="forms">
+	<%= form_for(@contact_u) do |f| %>
+	<% if @contact_u.errors.any? %>
+	<div id="error_explanation">
+		<h2> There are some issues:</h2>
+			<ul>
+				<% @contact_u.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+	</div>
+	<% end %>
+		<div class="formlft_container">
+			<ul>
+				<li><%= f.text_field :name, placeholder: 'Name', :class => "name" %></li>
+
+				<li><%= f.text_field :phone_number, placeholder: 'Phone Number', :class => "phone" %></li>
+
+				<li><%= f.text_field :email, placeholder: 'Email', :class => "email" %></li>
+
+				<li><%= f.text_field :subject, placeholder: 'Subject', :class => "subject" %></li>
+				</ul>
+		</div>
+
+		<div class="feedback_subject">
+			<ul>
+				<li><%= f.text_area :comment, placeholder: 'Comments' %></li>
+				<li><%= f.submit 'Send', :class=> "login_btn send_btn ease" %></li>
+			</ul>
+	<% end %>
+</div>
+</div>	
+</div>
+</div>

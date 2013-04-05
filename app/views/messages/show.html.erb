@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="left_nav">
+		<p class="show_msg">
+		  <%= @message.subject %>
+		</p>
+		
+		<p class="show_msg_date">
+			<b>Sent:</b>
+		  <%= @message.created_at %>
+		</p>
+		<div class="unit_size">
+		 <p>
+		  <b>Opens:</b>
+		  <%= @message.opens %>
+		</p>
+		<p>
+		  <b>Clicks:</b>
+		  <%= @message.clicks %>
+		</p>
+	</div>
+		
+	</div>
+	<div class="right_nav">
+		<p>
+		  <!-- <b>Body:</b> -->
+		  <%= @message.body.html_safe %>
+		</p>
+	</div>
+</div>

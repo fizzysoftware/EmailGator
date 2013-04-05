@@ -1,0 +1,11 @@
+<%= simple_form_for([@user,@message]) do |f| %>
+  	<%= f.error_notification %>
+
+	<%= f.input :subject, input_html: { class: 'input_subject' }, placeholder: 'Friends, Romans, countrymen, lend me your ears'  %>
+
+	<div class="box">
+    	<%= f.text_area :body, :class => "redactor", :rows => 40, :cols => 120 %>
+    </div>
+	<%= f.button :submit, 'Send Now', :class => "send_nowbtn ease textshadow login_btn" %> 
+	<%= f.button :submit, 'Save Draft', :class => "send_nowbtn ease textshadow login_btn" %>
+<% end %>

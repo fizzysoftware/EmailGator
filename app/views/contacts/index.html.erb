@@ -1,0 +1,37 @@
+<div class="container">
+  <%= render 'shared/sidebar' %><br>
+  <div class="right_nav">
+    <% unless @contacts.blank? %>
+    <div class="subject_sent_details">
+      <table class = "table table-striped">
+        <tr class="brdr_solid">
+          <th>Email</th>
+          <th>Date Subscribed</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+
+        <% @contacts.each do |contact| %>
+
+          <tr class="brdr_btm">
+            <td><%= link_to contact.email %></td>
+            <td><%= link_to 'Mar 19, 2013 05:14 pm', "#" %></td>
+            <td><%= link_to image_tag("edit-rule.png"), edit_user_contact_path(@user, contact),:title => 'Edit Contact' %></td>
+            <td><%= link_to image_tag("window-close.png"), user_contact_path(@user, contact), method: :delete, data: { confirm: 'Are you sure?' },:title => 'Delete Contact' %></td>
+
+          </tr>
+        <% end %>
+      </table>
+      <%= will_paginate @contacts %>
+    </div><!-- subject_sent_details -->
+
+    <% else %>
+      <p class="message_icon">
+        message icon
+      </p>
+      <p class="flash_message ease">No Contacts Found</p>
+      <p class="flash_text">Letters are among the most significiant memirial a person can leave behind them.</p>
+    <% end %>
+    <%= link_to 'New Contact', new_user_contact_path(current_user), :class => "newcontact_btn login_btn" %>
+  </div><!-- right_nav -->
+</div><!-- container -->
