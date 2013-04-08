@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   def show
     @message = Message.find(params[:id])
     begin
-      response = HTTParty.get('https://sendgrid.com/api/stats.get.json?api_user=mohitjain&api_key=mohitjain&category='+@message.category)
+      response = HTTParty.get('https://sendgrid.com/api/stats.get.json?api_user=******&api_key=********&category='+@message.category)
       data = JSON.parse(response)
       if data.first.class != Array
         @message.mail_statistics(data)
