@@ -87,7 +87,7 @@ Demo
 There is a demo available at [http://email.deskgator.com/](http://email.deskgator.com/)
 
 
-Deploying:
+Deploying
 ----------
 
   * Change the `config/deploy.rb` accordingly.
@@ -101,4 +101,10 @@ cap production deploy:cold
 Copyright
 ---------
 
-Copyright (c) 2012-2013 Fizzy Software. See LICENSE for details.
+Copyright (c) 2012-2013 [Fizzy Software](http://www.fizzysoftware.com). See LICENSE for details.
+
+
+Disclaimer
+---------
+
+This was a hackathon project which we do not maintain actively. Feel free to fork and improve :)
